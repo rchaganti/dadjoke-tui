@@ -78,6 +78,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case key.Matches(msg, m.Keys.Quit):
 			return m, tea.Quit
 		}
+
 	case tea.WindowSizeMsg:
 		headerHeight := lipgloss.Height(m.HeaderView())
 		footerHeight := lipgloss.Height(m.FooterView())
@@ -101,6 +102,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if useHighPerformanceRenderer {
 			cmds = append(cmds, viewport.Sync(m.Viewport))
 		}
+
 	}
 
 	m.Viewport, cmd = m.Viewport.Update(msg)
